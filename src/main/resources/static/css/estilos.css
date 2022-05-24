@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+#modalLog{
+    background-color: white;
+}
+#modalReg{
+    background-color: white;
+}
+html, body{
+    font-family: 'Numans', sans-serif;
+}
+.logo-img-big img{
+    
+    width: 500x;
+    height: 300px;
+   
+}

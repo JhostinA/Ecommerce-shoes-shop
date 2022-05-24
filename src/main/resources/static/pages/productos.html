@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>Products</title>
+</head>
+<body>
+<div class="card" id="usuarioCard">
+  <div class="card-header">
+    <div class="d-inline-block" id="content-menu-btn">
+      <button class="btn" id="menu-btn"></button>
+
+    </div>
+    <div id="welcom" class="d-flex justify-content-end"></div>
+
+  </div>
+
+</div>
+
+<nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+  <a href="productos.html" class="navbar-brand text-light mt-5">
+    <div id="img-logo"></div>
+    <div class="display-5 font-weight-bold">Sailor Moon</div>
+
+  </a>
+  <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+    <li class="nav-item w-100">
+      <a href="home.html" class="nav-link text-light pl-4">Home</a>
+    </li>
+    <li class="nav-item w-100">
+      <a href="productos.html" class="nav-link text-light pl-4">Productos</a>
+    </li>
+    <li class="nav-item w-100">
+      <a href="usuarios.html" class="nav-link text-light pl-4">Usuarios</a>
+    </li>
+    <li class="nav-item w-100">
+      <a href="#" class="nav-link text-light pl-4" onclick="cerrarSesion()">Cerrar Sesion</a>
+    </li>
+  </ul>
+</nav>
+<section class="p-4 my-container">
+  <h2 class="text-center">Productos</h2>
+  <div class="d-flex justify-content-end mt-3">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#footwareModal"
+      id="createModal">
+      Crear Producto
+    </button>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="footwareModal" tabindex="-1" data-bs-backdrop="static"
+    aria-labelledby="footwareModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="footwareModalLabel">Crear Producto</h5>
+          <button type="button" id="show_modal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formFootware" class="was-validated">
+            <div class="row">
+              <div class="mb-3 col-12">
+                <label for="reference" class="form-label">Referencia</label>
+                <input type="text" class="form-control" id="reference" placeholder="Ingresar la referencia" required>
+              </div>
+            </div>
+
+
+            <div class="row">
+
+              <div class="mb-3 col-6">
+
+                <label for="brand" class="form-label">Marca</label>
+                <input type="text" class="form-control" class="form-control" id="brand"
+                  placeholder="Ingresar la marca" required>
+              </div>
+
+              <div class="mb-3 col-6">
+                <label for="category" class="form-label">Categoria</label>
+                <select class="form-select" class="form-control" id="category" required>
+                  <option value="" disabled selected> Selecciona una categoria</option>
+                  <option value="Formal">Formal</option>
+                  <option value="Casual">Casual</option>
+                  <option value="Deportivo">Deportivo</option>
+                </select>
+
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="mb-3 col-6">
+                <label for="material" class="form-label">Material</label>
+                <select class="form-select" class="form-control" id="material" required>
+                  <option value="" disabled selected> Selecciona un material</option>
+                  <option value="cuero">Cuero</option>
+                  <option value="sintetico">Sintetico</option>
+                </select>
+
+              </div>
+
+
+              <div class="mb-3 col-6">
+                <label for="gender" class="form-label">Genero</label>
+                <select class="form-select" class="form-control" id="gender" required>
+                  <option value="" disabled selected> Selecciona un genero</option>
+                  <option value="Hombre">Hombre</option>
+                  <option value="Mujer">Mujer</option>
+                  <option value="Unisex">Unisex</option>
+                </select>
+
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="mb-3 col-6">
+                <label for="size" class="form-label">Talla</label>
+                <input type="number" class="form-control" id="size" placeholder="Ingresar la talla" required>
+              </div>
+              <div class="mb-3 col-6">
+                <label for="availability" class="form-label">Disponibilidad</label>
+                <select class="form-select" class="form-control" id="availability">
+                  <option value="" disabled selected> ¿Hay disponibilidad?</option>
+                  <option value="true">Si</option>
+                  <option value="false">No</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="mb-3 col-6">
+                <label for="price" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="price" placeholder="Ingresar el precio" required>
+              </div>
+              <div class="mb-3 col-6">
+                <label for="quantity" class="form-label">Cantidad</label>
+                <input type="number" class="form-control" id="quantity" placeholder="Ingresar la cantidad" required>
+              </div>
+            </div>
+            <div class="mb-3 col-12">
+              <label for="photography" class="form-label">Fotografia</label>
+              <input type="text" class="form-control" id="photography" placeholder="Ingresar url" required>
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Descripción</label>
+              <textarea class="form-control" name="description" id="description" cols="30" rows="5"
+                placeholder="Ingresar descripción" required></textarea>
+            </div>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+   <!-- Modal Editar -->
+   <div class="modal fade" id="footwareModalUp" tabindex="-1" data-bs-backdrop="static"
+   aria-labelledby="footwareModalUpLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="footwareModalUpLabel">Editar Producto</h5>
+         <button type="button" id="show_modal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+         <form id="formFootwareUp" class="was-validated">
+   
+         <div class="row">
+
+             <div class="mb-3 col-6">
+
+               <label for="brandUp" class="form-label">Marca</label>
+               <input type="text" class="form-control" class="form-control" id="brandUp"
+                 placeholder="Ingresar la marca" required>
+             </div>
+
+             <div class="mb-3 col-6">
+               <label for="categoryUp" class="form-label">Categoria</label>
+               <select class="form-select" class="form-control" id="categoryUp" required>
+                 <option value="" disabled selected> Selecciona una categoria</option>
+                 <option value="Formal">Formal</option>
+                 <option value="Casual">Casual</option>
+                 <option value="Deportivo">Deportivo</option>
+               </select>
+
+             </div>
+
+           </div>
+           <div class="row">
+             <div class="mb-3 col-6">
+               <label for="materialUp" class="form-label">Material</label>
+               <select class="form-select" class="form-control" id="materialUp" required>
+                 <option value="" disabled selected> Selecciona un material</option>
+                 <option value="cuero">Cuero</option>
+                 <option value="sintetico">Sintetico</option>
+               </select>
+
+             </div>
+
+
+             <div class="mb-3 col-6">
+               <label for="genderUp" class="form-label">Genero</label>
+               <select class="form-select" class="form-control" id="genderUp" required>
+                 <option value="" disabled selected> Selecciona un genero</option>
+                 <option value="Hombre">Hombre</option>
+                 <option value="Mujer">Mujer</option>
+                 <option value="Unisex">Unisex</option>
+               </select>
+
+             </div>
+
+           </div>
+           <div class="row">
+             <div class="mb-3 col-6">
+               <label for="sizeUp" class="form-label">Talla</label>
+               <input type="number" class="form-control" id="sizeUp" placeholder="Ingresar la talla" required>
+             </div>
+             <div class="mb-3 col-6">
+               <label for="availabilityUp" class="form-label">Disponibilidad</label>
+               <select class="form-select" class="form-control" id="availabilityUp">
+                 <option value="" disabled selected> ¿Hay disponibilidad?</option>
+                 <option value="true">Si</option>
+                 <option value="false">No</option>
+
+               </select>
+             </div>
+           </div>
+           <div class="row">
+             <div class="mb-3 col-6">
+               <label for="priceUp" class="form-label">Precio</label>
+               <input type="number" class="form-control" id="priceUp" placeholder="Ingresar el precio" required>
+             </div>
+             <div class="mb-3 col-6">
+               <label for="quantityUp" class="form-label">Cantidad</label>
+               <input type="number" class="form-control" id="quantityUp" placeholder="Ingresar la cantidad" required>
+             </div>
+           </div>
+           <div class="mb-3 col-12">
+             <label for="photographyUp" class="form-label">Fotografia</label>
+             <input type="text" class="form-control" id="photographyUp" placeholder="Ingresar url" required>
+           </div>
+           <div class="mb-3">
+             <label for="name" class="form-label">Descripción</label>
+             <textarea class="form-control" name="description" id="descriptionUp" cols="30" rows="5"
+               placeholder="Ingresar descripción" required></textarea>
+           </div>
+           <input type="hidden" id="referenceUp" value="">
+          
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+         <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+       </div>
+     </div>
+    </form>
+   </div>
+ </div>
+      <form action="">
+    <!--Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="deleteModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Advertencia</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p> ¿Estas seguro de eliminar el registro? </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <input type="hidden" id="delete_reference">
+            <button type="button" class="btn btn-danger" onclick="borrarProducto()">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table table-collapse">
+      <thead>
+        <th>Fotografia</th>
+        <th>Referencia</th>
+        <th>Marca</th>
+        <th>Categoria</th>
+        <th>Material</th>
+        <th>Genero</th>
+        <th>Talla</th>
+        <th>Descripcion</th>
+        <th>Disponibilidad</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Acciones</th>
+      </thead>
+      <tbody id="data_productos">
+        
+      </tbody>
+
+  </section>
+
+  <script src="/js/productos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+    
+
+</body>
+
+</html>

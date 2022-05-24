@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/accessory")
+@CrossOrigin("*")
 public class FootwearController {
     @Autowired
     private FootwearService footwearService;

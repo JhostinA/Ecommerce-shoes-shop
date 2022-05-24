@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container text-center">
+
+        <div class="col-12">
+            <div class="logo-img-big">
+                <img src="https://www.logolynx.com/images/logolynx/7c/7c00ef51dac3c08e9fc2959badf15a82.png" alt="">
+            </div>
+            <div class="row">
+
+                <div class="col text-center" id="welcomeHome">
+
+                </div>
+
+            </div>
+            <div class="text-center" id="rolVal">
+
+            </div>
+            <div class="text-center" id="noLogin">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        const usuarioData = localStorage.getItem('usuario')
+        if (usuarioData == null) {
+            const $iniciarSesion = document.querySelector("#noLogin")
+            $iniciarSesion.innerHTML = "<p>Aun no has iniciado sesion <a href='../index.html'>Iniciar Sesión</a> </p>"
+        }
+        else {
+            const usuarioDataJson = JSON.parse(usuarioData)
+            const rol = usuarioDataJson.type
+            switch (rol) {
+                case 'Administrador': window.location.href = "/pages/productos.html"
+                    break;
+                case 'COORD': window.location.href = "/pages/ordencord/miperfilcord.html"
+                    break;
+                case 'ASE': window.location.href = "/pages/ordenase/miperfilase.html"
+                    break;
+            }
+
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("usuario");
+            window.location.href = "/index.html"
+        }
+
+    </script>
+
+</body>
+
+
+
+
+</html>
